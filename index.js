@@ -66,10 +66,10 @@ app.post('/insert/patient', (req, res) => {
   } else { 
     const sqlInsert = "INSERT INTO patient_tbl (first_name, last_name, gender, age, full_name, mobile_no, email_address, crt_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    // db.query(sqlInsert,[firstName,lastName, gender, age, fullName, phoneNumber, email, meetingTimeInMysqlFormat], (err, result) => {
-    //   console.log(result);
-    //   console.log(err);
-    // })
+    db.query(sqlInsert,[firstName,lastName, gender, age, fullName, phoneNumber, email, meetingTimeInMysqlFormat], (err, result) => {
+      console.log(result);
+      console.log(err);
+    })
     req.flash('success','Appointment Success');
     res.redirect('/');
   }
